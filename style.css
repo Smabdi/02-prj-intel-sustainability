@@ -1,1 +1,151 @@
-/* Add your CSS here */
+/* ========== Base Reset ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ========== Hero / Header Section ========== */
+header {
+  /* Intel brand gradient */
+  background: linear-gradient(135deg, #0068B5 0%, #00AEEF 100%);
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+header img {
+  width: 120px;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+header p {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* ========== Timeline Section ========== */
+section {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 2rem 2rem; /* space on sides */
+  scroll-snap-type: x mandatory;
+  scroll-padding: 2rem; /* keeps first card from hugging edge */
+}
+
+section > div {
+  background: white;
+  border-radius: 12px;
+  flex: 0 0 300px; /* card width */
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+
+  /* Make inside content consistent */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 500px; /* fixed card height */
+}
+
+section > div:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+section h2 {
+  color: #0068B5;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+  text-align: center;
+}
+
+/* ========== Timeline Images ========== */
+section img {
+  width: 100%; /* Full width of container */
+  height: 160px; /* Fixed height */
+  object-fit: cover; /* Changed from contain to cover for consistent sizing */
+  margin: 0 auto 1rem auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background-color: #f0f0f0; /* Fallback background */
+}
+
+/* ========== Timeline Text ========== */
+section p {
+  font-size: 0.95rem;
+  color: #555;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  flex-grow: 1; /* stretch text to fill card */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+section > div:hover p {
+  opacity: 1;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding: 1rem;
+  }
+
+  section > div {
+    flex: 1;
+    width: 100%;
+    height: auto; /* allow cards to expand naturally */
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+}
+
+/* ========== Footer Note ========== */
+body > p {
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 2rem 0;
+  color: #666;
+}
